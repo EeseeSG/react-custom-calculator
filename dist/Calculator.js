@@ -27,13 +27,12 @@ import { styled } from '@mui/system';
 // mathjs
 import { evaluate, } from "mathjs";
 // asset
-import Iconify from '../Iconify';
+import Iconify from './Iconify';
 import historyIcon from '@iconify/icons-tabler/history';
 // utils
 import { formatToThousands } from './utils';
 // components
 import History from './History';
-import TextMaxLine from '../TextMaxLine';
 // ---------------------------------------------------------------
 var CalculatorButton = styled(Button)(function (_a) {
     var theme = _a.theme;
@@ -239,7 +238,16 @@ export default function Calculator() {
             borderColor: 'grey.300',
             borderRadius: 1,
             p: 2,
-        } }, { children: [_jsxs(Grid, __assign({ container: true }, { children: [_jsx(Grid, __assign({ item: true, xs: 12, sx: { mb: 1 } }, { children: _jsx(Typography, __assign({ variant: 'h5' }, { children: "Calculator" })) })), _jsxs(Grid, __assign({ item: true, xs: 12, style: { backgroundColor: theme.palette.background.paper }, sx: { p: 1, border: 1, borderRadius: 1, borderColor: 'primary.light', mb: 1, height: 100 } }, { children: [_jsxs(Stack, __assign({ direction: "row", sx: { justifyContent: 'space-between', } }, { children: [history.length !== 0 && (_jsxs(Stack, __assign({ direction: "row", alignItems: "center" }, { children: [_jsx(Chip, { label: history.length, size: "small" }), _jsx(IconButton, __assign({ size: "small", onClick: handleOpenHistory }, { children: _jsx(Iconify, { icon: historyIcon }) }))] }))), _jsx(TextMaxLine, __assign({ align: 'right', variant: 'body1', sx: { height: 35, color: 'grey.500', pr: 3 }, line: 1 }, { children: history.length === 0
+        } }, { children: [_jsxs(Grid, __assign({ container: true }, { children: [_jsx(Grid, __assign({ item: true, xs: 12, sx: { mb: 1 } }, { children: _jsx(Typography, __assign({ variant: 'h5' }, { children: "Calculator" })) })), _jsxs(Grid, __assign({ item: true, xs: 12, style: { backgroundColor: theme.palette.background.paper }, sx: { p: 1, border: 1, borderRadius: 1, borderColor: 'primary.light', mb: 1, height: 100 } }, { children: [_jsxs(Stack, __assign({ direction: "row", sx: { justifyContent: 'space-between', } }, { children: [history.length !== 0 && (_jsxs(Stack, __assign({ direction: "row", alignItems: "center" }, { children: [_jsx(Chip, { label: history.length, size: "small" }), _jsx(IconButton, __assign({ size: "small", onClick: handleOpenHistory }, { children: _jsx(Iconify, { icon: historyIcon }) }))] }))), _jsx(Typography, __assign({ align: 'right', variant: 'body1', sx: {
+                                            height: 35,
+                                            color: 'grey.500',
+                                            pr: 3,
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: 1,
+                                            WebkitBoxOrient: 'vertical'
+                                        } }, { children: history.length === 0
                                             ? ' '
                                             : formatToThousands(history[history.length - 1].display + " = " + history[history.length - 1].result) }))] })), _jsx(Divider, {}), _jsx(Typography, __assign({ align: 'right', variant: 'h3', sx: { height: 50, } }, { children: formatToThousands(display) }))] })), _jsx(Grid, __assign({ item: true, xs: 12 }, { children: _jsx(Grid, __assign({ container: true, spacing: 1 }, { children: buttonOptions.map(function (group, index) { return (_jsx(Grid, __assign({ item: true, xs: 12 }, { children: _jsx(ButtonGroup, __assign({ variant: "outlined", fullWidth: true }, { children: group.map(function (btn, index) { return (_jsx(CalculatorButton, __assign({ onClick: function () { return handleClick(btn); } }, { children: btn.label }), index + "-btn")); }) })) }), index + "-group")); }) })) }))] })), _jsx(History, { data: history, open: openHistory, handleClose: handleCloseHistory, handleSelect: handleSelectHistory })] })));
 }

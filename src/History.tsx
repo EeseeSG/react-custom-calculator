@@ -19,7 +19,7 @@ import { TransitionProps } from '@mui/material/transitions';
 // @types
 import { HistoryProps } from './Calculator';
 // assets
-import Iconify from '../Iconify';
+import Iconify from './Iconify';
 import arrowBarRight from '@iconify/icons-tabler/arrow-bar-right';
 import { formatToThousands } from './utils';
 

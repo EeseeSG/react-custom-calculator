@@ -6,13 +6,12 @@ import { styled } from '@mui/system';
 // mathjs
 import { evaluate, } from "mathjs";
 // asset
-import Iconify from '../Iconify';
+import Iconify from './Iconify';
 import historyIcon from '@iconify/icons-tabler/history';
 // utils
 import { formatToThousands } from './utils';
 // components
 import History from './History';
-import TextMaxLine from '../TextMaxLine';
 
 // ---------------------------------------------------------------
 
@@ -269,12 +268,25 @@ export default function Calculator() {
                                 </IconButton>
                             </Stack>
                         )}
-                        <TextMaxLine align='right' variant='body1' sx={{ height: 35, color: 'grey.500', pr: 3 }} line={1}>
+                        <Typography 
+                            align='right' 
+                            variant='body1' 
+                            sx={{ 
+                                height: 35, 
+                                color: 'grey.500', 
+                                pr: 3,
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                display: '-webkit-box',
+                                WebkitLineClamp: 1,
+                                WebkitBoxOrient: 'vertical'
+                            }}
+                        >
                             {history.length === 0 
                                 ? ' ' 
                                 : formatToThousands(history[history.length-1].display + " = " + history[history.length-1].result)
                             }
-                        </TextMaxLine>
+                        </Typography>
                     </Stack>
                     <Divider />
                     <Typography align='right' variant='h3' sx={{ height: 50, }}>{formatToThousands(display)}</Typography>

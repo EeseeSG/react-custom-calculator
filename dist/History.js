@@ -23,7 +23,7 @@ import * as React from 'react';
 // mui
 import { Button, Dialog, DialogContent, DialogActions, DialogTitle, Slide, Chip, Divider, IconButton, List, ListItem, ListItemIcon, ListItemText, } from '@mui/material';
 // assets
-import Iconify from '../Iconify';
+import Iconify from './Iconify';
 import arrowBarRight from '@iconify/icons-tabler/arrow-bar-right';
 import { formatToThousands } from './utils';
 // --------------------------------------------------------------
